@@ -168,25 +168,29 @@ Load Done
 RAM: Total 0528 regs of 0248 bytes each.
 Starting Timed Tasks
 
-OC: 000000   TOC: 000000   TIM: 01:00:12
-BME: T[0.00] P[0.000] H[0.00] 
-BMP: T[0.00] P[0.000]
-SI7: T[0.00] H[0.00] 
-CCS: Not Detected
-ADS: 1[    0] 2[    0] 3[    0] 4[    0](0.00V)
-MIC: Calibrating.. 0/10
-BH1: Lux[0.00]
-SI1: VIS[    0] IR[    0] UV[    0] PROX[    0]
-TCS1: R[    0] G[    0] B[    0] C[    0] IR[    0]
-TCS2: C_R[    0] C_G[    0] C_B[    0] R_C[    0] LUX[0.00]
-TCS3: CR[0.00] AGX[    0] ATMS[    0] CPL[0.00]
-TCS4: MAX_LUX[0.00] K[0.00]
+NOC: 000017   TOC: 000046   TIM: 01:00:49
+BME: T[29.43] P[1005.826] H[45.10] 
+BMP: T[30.22] P[1005.495]
+SI7: T[29.46] H[43.67] 
+CCS: eCO2[ 428] VOL[   4] 
+ADS: 1[  131] 2[ 1348] 3[   71] 4[17477](3.29V)
+MIC: Carb Mono[3.19]  Diox Nitr[0.15]  Amonio[0.18] Propano[74.27]
+MIC: Butano[70.54] Metano[194.24] Hidrog[0.45] Etanol[1.07]
+MCP: IN(A)[###-##-#] OUT(B)[--------] Int[--------](0)(0) 
+BH1: Lux[41.67]
+SI1: VIS[  261] IR[  261] UV[    0] PROX[  255]
+TCS1: R[ 3467] G[ 3443] B[ 3588] C[ 7978] IR[ 1260]
+TCS2: C_R[ 2207] C_G[ 2183] C_B[ 2328] R_C[ 6718] LUX[48.95]
+TCS3: CR[0.16] AGX[   60] ATMS[  153] CPL[29.61]
+TCS4: MAX_LUX[737.69] K[5409.89]
 VE5: UVA[0.00] UVB[0.00] UVI[0.00]
-VL5: out of range 0
-MLX: Amb[0.00] Obj[0.00]
-MPU: Ax[0.00] Ay[0.00] Az[0.00] - Gx[0.00] Gy[0.00] Gz[0.00]
-MPU: Mx[0.00] My[0.00] Mz[0.00] SumG[0.00] T[0.00'C]
-MPU: ANx[0.00] ANy[0.00] ANz[0.00] Pitch[0.00] Roll[0.00] M[0]
+VE0: UVI[0]
+VL5: Distance [1739] mm
+MLX: Amb[26.93] Obj[25.91]
+MPU: Ax[0.00] Ay[0.00] Az[1.01] - Gx[0.01] Gy[-0.05] Gz[0.02]
+MPU: Mx[30.29] My[110.58] Mz[229.36] SumG[1.01] T[36.58'C]
+MPU: ANx[0.01] ANy[0.05] ANz[90.00] Pitch[-0.01] Roll[0.03] M[0]
+
 
 
 ```
