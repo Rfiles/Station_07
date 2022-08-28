@@ -54,24 +54,24 @@ TimerHandle_t xTimers[ COUNT_TASKS ];
 
 ModulesParameters ModuleData[] = {
   //SET:Name[3] BootFunction     ServerFunction    StartOnBoot
-  {{},{ "SCN",  i2cscan_boot,    NULL,             true  }},  // 00
-  {{},{ "RAM",  sram_boot,       NULL,             true  }},  // 01
-  {{},{ "SI7",  si7021_boot,     si7021_read,      false }},  // 02
-  {{},{ "BME",  bme_boot,        bme_read,         false }},  // 03
-  {{},{ "ADS",  ads_boot,        ads_read,         false }},  // 04
-  {{},{ "MCP",  mcp_boot,        mcp_read,         true  }},  // 05
-  {{},{ "CCS",  ccs_boot,        ccs_read,         false }},  // 06
-  {{},{ "MIC",  mics_boot,       mics_read,        false }},  // 07
-  {{},{ "SI1",  si1145_boot,     si1145_read,      false }},  // 08
-  {{},{ "VL5",  vl53l1_boot,     vl53l1_read,      false }},  // 09
-  {{},{ "TCS",  tcs34725_boot,   tcs34725_read,    false }},  // 10
-  {{},{ "MLX",  mlx_boot,        mlx_read,         false }},  // 11
-  {{},{ "BH1",  bh_boot,         bh_read,          false }},  // 12
-  {{},{ "MPU",  mpu_boot,        mpu_read,         false }},  // 13
-  {{},{ "VE0",  veml6075_boot,   veml6075_read,    false }},  // 14
-  {{},{ "BMP",  bmp_boot,        bmp_read,         false }},  // 15
-  {{},{ "VL0",  veml6070_boot,   veml6070_read,    false }},  // 16
-  {{},{ "WS2",  ws2812_boot,     NULL,             false }}   // 17
+  {{},{ "SCN",  i2cscan_boot,    NULL,             true   }},  // 00
+  {{},{ "RAM",  sram_boot,       NULL,             true   }},  // 01
+  {{},{ "SI7",  si7021_boot,     si7021_read,      true   }},  // 02
+  {{},{ "BME",  bme_boot,        bme_read,         true   }},  // 03
+  {{},{ "ADS",  ads_boot,        ads_read,         true   }},  // 04
+  {{},{ "MCP",  mcp_boot,        mcp_read,         true   }},  // 05
+  {{},{ "CCS",  ccs_boot,        ccs_read,         true   }},  // 06
+  {{},{ "MIC",  mics_boot,       mics_read,        true   }},  // 07
+  {{},{ "SI1",  si1145_boot,     si1145_read,      true   }},  // 08
+  {{},{ "VL5",  vl53l1_boot,     vl53l1_read,      true   }},  // 09
+  {{},{ "TCS",  tcs34725_boot,   tcs34725_read,    true   }},  // 10
+  {{},{ "MLX",  mlx_boot,        mlx_read,         true   }},  // 11
+  {{},{ "BH1",  bh_boot,         bh_read,          true   }},  // 12
+  {{},{ "MPU",  mpu_boot,        mpu_read,         true   }},  // 13
+  {{},{ "VE0",  veml6075_boot,   veml6075_read,    true   }},  // 14
+  {{},{ "BMP",  bmp_boot,        bmp_read,         true   }},  // 15
+  {{},{ "VL0",  veml6070_boot,   veml6070_read,    true   }},  // 16
+  {{},{ "WS2",  ws2812_boot,     NULL,             true   }}   // 17
 };
 
 const uint8_t NUM_MODS = ( sizeof(ModuleData) / ( sizeof(ModuleInfo) + sizeof(ModuleConfig) ) );
@@ -245,28 +245,11 @@ void GatherValues () {
     SensorData.toc = millis();
     SensorData.SamplesCounter++;
 
-
     for (uint8_t Loop=0; Loop < NUM_MODS; Loop++) {
       if (ModuleData[Loop].Register.ModuleDetected) {
-         (*ModuleData[Loop].Config.ServerFunction)();
+        if (ModuleData[Loop].Config.ServerFunction) (*ModuleData[Loop].Config.ServerFunction)();
       }
     }
-
-    // if (ModuleData[2].Get.ModuleDetected) si7021_read();
-    // if (ModuleData[3].Get.ModuleDetected) bme_read();
-    // if (ModuleData[4].Get.ModuleDetected) ads_read();
-    // if (ModuleData[5].Get.ModuleDetected) mcp_read();
-    // if (ModuleData[6].Get.ModuleDetected) ccs_read();
-    // if (ModuleData[7].Get.ModuleDetected) mics_read();
-    // if (ModuleData[8].Get.ModuleDetected) si1145_read();
-    // if (ModuleData[9].Get.ModuleDetected) vl53l1_read();
-    // if (ModuleData[10].Get.ModuleDetected) tcs34725_read();
-    // if (ModuleData[11].Get.ModuleDetected) mlx_read();
-    // if (ModuleData[12].Get.ModuleDetected) bh_read();
-    // if (ModuleData[13].Get.ModuleDetected) mpu_read();
-    // if (ModuleData[14].Get.ModuleDetected) veml6075_read();
-    // if (ModuleData[15].Get.ModuleDetected) bmp_read();
-    // if (ModuleData[16].Get.ModuleDetected) veml6070_read();
 
     AddValues2Mem();
 
@@ -370,12 +353,12 @@ void SetupKeyCmds () {
   keycmd.addCommand("k", ws2812_SetI );    // k (intensity)
   keycmd.addCommand("l", SwitchCalib );    // l <default is preset values>
   keycmd.addCommand("x", SetMCPpin );      // x (1/0) [Pin B num] <default is pin 1>
-
-  // spare commands
   keycmd.addCommand("c", mcpSetALL );
   keycmd.addCommand("v", SetMCPpinMode );
   keycmd.addCommand("b", BootModuleCmd );  // b (Index)
   keycmd.addCommand("n", ws2812_print );
+
+  // spare commands
   keycmd.addCommand("m", mcpSetALL );
   
   // what was that command
