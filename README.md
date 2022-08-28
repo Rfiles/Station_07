@@ -12,6 +12,9 @@
 - [ ] list of libraries and links/names
 
 
+Note:
+- Serial port is running at 500kBaud
+
 Commands:
 
 | Command | Description |
@@ -31,13 +34,25 @@ Commands:
 | k | Set WS2812 Intensity (k <intensity 8bits>) |
 | l | Toggle MICS6814 Calibration Source. Preset/ADC mean since boot in 10 samples. |
 | x | Set MCP23017 pin. (x <1/0> [Pin# in port B] Default is Pin B1 |
-| c |  |
-| v |  |
-| i |  |
-| b |  |
-| n |  |
-| m |  |
+| c | Toggle all MCP23017 Port B pins on/off. |
+| v | Set MPC23017 Port B Pin input or output. (v <1/0> [Port B pin. Default 1]) |
+| b | Boot Specific Module Number. (b <module #>) |
+| n | Change first 3 WS2812 leds to Red, Green, Blue. |
+| --- | --- |
+| d | Read VEML6070 sensor data. CRASHES ESP32. DONT KNOW WHY! |
+| z | Erases 23LC1024 RAM. CRASHES ESP32. DONT KNOW WHY! |
 
-All other commands are ignored with an error message
+All other commands are ignored with an error message.
+
+Timers:
+| Number | Time in ms |Description |
+| --- | --- | --- |
+| 0 | 500 | MCP23017 Port B1 Led Blink |
+| 1 | 2500 | Get And Store All Sensors Data |
+| 2 | 1234 | Process Values. NOT USED |
+| 3 | 5000 | List All Sensors Data in Terminal |
+| 4 | 5000 | Send All Sensors Data to MQTT Server |
+
+
 
 
