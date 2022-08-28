@@ -6,10 +6,11 @@
 - [X] make public
 - [ ] photo of project
 - [ ] schematic of project
-- [ ] exemple output
+- [X] exemple output
 - [X] list of main commands
 - [ ] description of archivements so far
 - [ ] list of libraries and links/names
+- [ ] list of modules used
 
 Dumb Photo of Device:
 
@@ -18,10 +19,71 @@ Dumb Photo of Device:
 Note:
 - Serial port is running at 500kBaud
 
+
+Modules Used In This Project:
+| HardWare | What I get |
+| :---: | :--- |
+| BME280 | Temperature, Pressure, Humidty |
+| ADS1115 | 4 channel 15 bit ADC. Channel 4 connected to 3.3V|
+| BH1750 | Light Intensity |
+| BMP280 | Temperature, Pressure |
+| CCS811 | Equivalent CO2, Amount of Volatile Gases |
+| MCP23017 | 16 pin Input/Output Expander |
+| VL53L1 | Laser Distance Sensor up to 4 meters |
+| VEML6070 | UV intensity |
+| 23LC1024 | 128kB External SPI RAM. Store Values. Pointless for now |
+| WS2812B | 3 modules full RGB configurable LEDS |
+| MICS6814 | 3 Gases Sensor. Uses 3 channels of ADS1115. Measures 8 Gases |
+| MPU9250 | 9 Axis Montion Sensor. Accelerometer, Gyroscope, Magnetometer (3 axis each). Also chip temperature |
+| SI1145 | Light and proximity sensor. Infrared, UltraViolet, Visible, Proximity (With white LED) |
+| VEML6075 | Ultraviolet Sensor. UVa, UVb, UV intensity |
+| SI7021 | Temperature, Humidity  |
+| TCS34725 | Light Sensor. Red, Green, Blue, Clear, IR, (LUX, K, CPL calculated) |
+| TCA9548A | I2C Switch and level translator for all I2C devices |
+| MLX90614 | Infrared Temperature Sensor. Object Temperature, Ambient Temperature |
+
+
+
+| SoftWare | What I Get |
+| :---: | :--- |
+| WiFi | WiFi |
+| INFLUX | Direct Connection to Database. DOESNT WORK |
+| MQTT | Send Data to Nodered in raspberry pi 3B+ |
+| OTA | Auto check for Update in raspberry pi server, webpage server for update |
+| I2C Scanner | Scans TCA9548 for devices and lists in Serial Port |
+
+
+TCA9548 channels used:
+| Channel | What is Connected |
+| :---: | :--- |
+| 0 | MCP23017, ADS1115 |
+| 1 | CCS811 |
+| 2 | MPU9250, BMP280, TCS34725, VEML6075 |
+| 3 | VEML6070 |
+| 4 |  |
+| 5 |  |
+| 6 | SI7021, SI1145, MLX90614, BME280 |
+| 7 | VL53L1 |
+
+
+MCP23017 Pins Used:
+| PIN | What is Connected |
+| :---: | :--- |
+| A0 | TCS34725 Interrupt |
+| A1 | ADS1115 Alarm |
+| A2 | CCS811 Interrupt |
+| A3 | VL53L1 GPIO1 |
+| A4 | SI1145 Interrupt |
+| A5 | VEML6070 Ack |
+| A6 | User Button Active Low |
+| B0 | TCS34725 LED |
+| B1 | User Red LED |
+
+
 Commands:
 
 | Command | Description |
-| --- | --- |
+| :---: | :--- |
 | 0 | Force Listing of stored Values |
 | 1 | Force Gather Values from Sensors |
 | e | Force Boot Modules |
@@ -41,7 +103,6 @@ Commands:
 | v | Set MPC23017 Port B Pin input or output. (v <1/0> [Port B pin. Default 1]) |
 | b | Boot Specific Module Number. (b <module #>) |
 | n | Change first 3 WS2812 leds to Red, Green, Blue. |
-| --- | --- |
 | d | Read VEML6070 sensor data. CRASHES ESP32. DONT KNOW WHY! |
 | z | Erases 23LC1024 RAM. CRASHES ESP32. DONT KNOW WHY! |
 
@@ -49,7 +110,7 @@ All other commands are ignored with an error message.
 
 Timers:
 | Number | Time in ms |Description |
-| --- | --- | --- |
+| :---: | :---: | :--- |
 | 0 | 500 | MCP23017 Port B1 Led Blink |
 | 1 | 2500 | Get And Store All Sensors Data |
 | 2 | 1234 | Process Values. NOT USED |
@@ -96,6 +157,32 @@ E (636) gpio: gpio_set_level(226): GPIO output gpio_num error
 Load Done
 RAM: Total 0528 regs of 0248 bytes each.
 Starting Timed Tasks
+
+OC: 000000   TOC: 000000   TIM: 01:00:12
+BME: T[0.00] P[0.000] H[0.00] 
+BMP: T[0.00] P[0.000]
+SI7: T[0.00] H[0.00] 
+CCS: Not Detected
+ADS: 1[    0] 2[    0] 3[    0] 4[    0](0.00V)
+MIC: Calibrating.. 0/10
+BH1: Lux[0.00]
+SI1: VIS[    0] IR[    0] UV[    0] PROX[    0]
+TCS1: R[    0] G[    0] B[    0] C[    0] IR[    0]
+TCS2: C_R[    0] C_G[    0] C_B[    0] R_C[    0] LUX[0.00]
+TCS3: CR[0.00] AGX[    0] ATMS[    0] CPL[0.00]
+TCS4: MAX_LUX[0.00] K[0.00]
+VE5: UVA[0.00] UVB[0.00] UVI[0.00]
+VL5: out of range 0
+MLX: Amb[0.00] Obj[0.00]
+MPU: Ax[0.00] Ay[0.00] Az[0.00] - Gx[0.00] Gy[0.00] Gz[0.00]
+MPU: Mx[0.00] My[0.00] Mz[0.00] SumG[0.00] T[0.00'C]
+MPU: ANx[0.00] ANy[0.00] ANz[0.00] Pitch[0.00] Roll[0.00] M[0]
+
+
 ```
+
+
+
+
 
 
