@@ -9,7 +9,7 @@
 - [X] exemple output
 - [X] list of main commands
 - [ ] description of archivements so far
-- [ ] list of libraries and links/names
+- [X] list of libraries and links/names
 - [X] list of modules used
 
 ---
@@ -17,7 +17,7 @@
 Dumb Photo of Device:
 
 ![Photo](./Imgs/20220822_140737.jpg)
-
+Its a Mess, I know.
 ---
 
 ## Libraries Used:
