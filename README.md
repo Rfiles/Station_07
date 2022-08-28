@@ -4,7 +4,7 @@
 
 #### TODO:
 - [X] make public
-- [ ] photo of project
+- [X] photo of project
 - [ ] schematic of project
 - [X] exemple output
 - [X] list of main commands
@@ -12,13 +12,30 @@
 - [ ] list of libraries and links/names
 - [X] list of modules used
 
+---
+
 Dumb Photo of Device:
 
+![Photo](./Imgs/20220822_140737.jpg)
+
+---
+
+## Libraries Used:
+| Library | By | Link |
+| :---: | :---: | :--- |
+| ADS1115 | Adafruit | https://github.com/adafruit/Adafruit_ADS1X15 |
+| BH1750 | claws | https://github.com/claws/BH1750 |
+| BME280 | Adafruit | https://github.com/adafruit/Adafruit_BME280_Library |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 
-Note:
-- Serial port is running at 500kBaud
-
+----
 
 ## Modules Used In This Project:
 | HardWare | What I get |
@@ -194,6 +211,12 @@ MPU: ANx[0.01] ANy[0.05] ANz[90.00] Pitch[-0.01] Roll[0.03] M[0]
 
 
 ```
+
+
+
+Note:
+- Serial port is running at 500kBaud
+
 
 
 
