@@ -26,13 +26,25 @@ Dumb Photo of Device:
 | ADS1115 | Adafruit | https://github.com/adafruit/Adafruit_ADS1X15 |
 | BH1750 | claws | https://github.com/claws/BH1750 |
 | BME280 | Adafruit | https://github.com/adafruit/Adafruit_BME280_Library |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| BMP280 | Adafruit | https://github.com/adafruit/Adafruit_BMP280_Library |
+| CCS811 | Adafruit | https://github.com/adafruit/Adafruit_CCS811 |
+| MCP23017 | Wolfgang (Wolle) Ewald | https://github.com/wollewald/MCP23017_WE |
+| VL53L1X | Adafruit | https://github.com/adafruit/Adafruit_VL53L1X |
+| VEML6070 | Adafruit | https://github.com/adafruit/Adafruit_VEML6070 |
+| 23LC1024 | Justin Mattair | https://github.com/MattairTech/SRAM_23LC |
+| WS2812B | Adafruit | https://github.com/adafruit/Adafruit_NeoPixel |
+| INFLUX | Tobias Schürg | https://github.com/tobiasschuerg/InfluxDB-Client-for-Arduino |
+| MICS6814 | Nis Wechselberg | Based on https://github.com/eNBeWe/MiCS6814-I2C-Library |
+| MLX90614 | Adafruit | https://github.com/adafruit/Adafruit-MLX90614-Library |
+| MPU9250 | Wolfgang (Wolle) Ewald | https://github.com/wollewald/MPU9250_WE |
+| PUBSUBCLIENT | Nick O'Leary | https://github.com/knolleary/pubsubclient/ |
+| PUBSUBCLIENTTOOLS | Simon Christmann | https://github.com/dersimn/ArduinoPubSubClientTools |
+| AsyncElegantOTA | Ayush Sharma | https://github.com/ayushsharma82/AsyncElegantOTA |
+| TelnetStream | Juraj Andrássy | https://github.com/jandrassy/TelnetStream |
+| Serial Commands | Stefan Rado | https://github.com/kroimon/Arduino-SerialCommand  (Version 2013-10-21A) |
+
+
+###### And inspired by other libraries.
 
 
 ----
