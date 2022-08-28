@@ -10,7 +10,7 @@
 - [X] list of main commands
 - [ ] description of archivements so far
 - [ ] list of libraries and links/names
-- [ ] list of modules used
+- [X] list of modules used
 
 Dumb Photo of Device:
 
@@ -20,7 +20,7 @@ Note:
 - Serial port is running at 500kBaud
 
 
-Modules Used In This Project:
+## Modules Used In This Project:
 | HardWare | What I get |
 | :---: | :--- |
 | BME280 | Temperature, Pressure, Humidty |
@@ -53,7 +53,9 @@ Modules Used In This Project:
 | I2C Scanner | Scans TCA9548 for devices and lists in Serial Port |
 
 
-TCA9548 channels used:
+
+
+## TCA9548 channels used:
 | Channel | What is Connected |
 | :---: | :--- |
 | 0 | MCP23017, ADS1115 |
@@ -66,7 +68,9 @@ TCA9548 channels used:
 | 7 | VL53L1 |
 
 
-MCP23017 Pins Used:
+
+
+## MCP23017 Pins Used:
 | PIN | What is Connected |
 | :---: | :--- |
 | A0 | TCS34725 Interrupt |
@@ -80,7 +84,9 @@ MCP23017 Pins Used:
 | B1 | User Red LED |
 
 
-Commands:
+
+
+# Commands:
 
 | Command | Description |
 | :---: | :--- |
@@ -108,7 +114,9 @@ Commands:
 
 All other commands are ignored with an error message.
 
-Timers:
+
+
+## Timers:
 | Number | Time in ms |Description |
 | :---: | :---: | :--- |
 | 0 | 500 | MCP23017 Port B1 Led Blink |
@@ -117,7 +125,9 @@ Timers:
 | 3 | 5000 | List All Sensors Data in Terminal |
 | 4 | 5000 | Send All Sensors Data to MQTT Server |
 
-Example of Serial Output:
+
+
+### Example of Serial Output:
 ```
 Aug 28 2022 16:57:561
 Station_07 Loader of 18 Modules:
